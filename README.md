@@ -1,4 +1,4 @@
-> :warning: **Repo is a work-in-progress**: Updating the guide for Helm v3!
+> :warning: **README is a work-in-progress**: Updating the guide for Helm v3!
 
 # IoTeX Node in Kubernetes
 
