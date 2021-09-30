@@ -26,6 +26,7 @@ Docker image was taken from [IoTeX on Docker hub](https://hub.docker.com/r/iotex
 CLUSTER_INDEX=0
 CLUSTER_NAME=iotex-node-${CLUSTER_INDEX} && echo "Cluster name is ${CLUSTER_NAME}"
 MASTER_ZONE=us-central1-a
+PROJECT_NAME=strong-compiler-327520
 
 gcloud container clusters create $CLUSTER_NAME \
     --num-nodes 1 \
@@ -34,7 +35,8 @@ gcloud container clusters create $CLUSTER_NAME \
     --cluster-version latest \
     --enable-autorepair \
     --enable-ip-alias \
-    --zone=$MASTER_ZONE
+    --zone=$MASTER_ZONE \
+    --project=$PROJECT_NAME
 
 gcloud container clusters get-credentials $CLUSTER_NAME --zone=$MASTER_ZONE
 
@@ -43,12 +45,23 @@ helm init
 bash patch-tiller.sh
 ```
 
+## Resizing cluster (helpful for development on/off toggle)
+
+```bash
+NODE_COUNT=0
+
+gcloud container clusters resize $CLUSTER_NAME \ 
+    --num-nodes=$NODE_COUNT \
+    --zone=$MASTER_ZONE \
+    --project=$PROJECT_NAME
+```
+
 ## Installing the Chart
 
 To install the chart with the release name `iotex`:
 
 ```bash
-$ helm install --name iotex charts/iotex
+$ helm install iotex charts/iotex
 ```
 
 The command deploys IoTeX on the Kubernetes cluster in the default configuration.
