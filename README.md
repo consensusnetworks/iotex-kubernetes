@@ -1,3 +1,5 @@
+> :warning: **Repo is a work-in-progress**: Updating the guide for Helm v3!
+
 # IoTeX Node in Kubernetes
 
 [IoTeX](https://iotex.io/) is a decentralized cryptosystem, a new generation of blockchain platform for the 
