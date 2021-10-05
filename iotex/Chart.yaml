@@ -8,10 +8,9 @@ keywords:
 - iotex
 - cryptocurrency
 maintainers:
-- email: av@dysnix.com
-  name: voron
+- name: shanejearley
+  email: shanejearley@gmail.com
 name: iotex
 sources:
-- https://github.com/kubernetes/charts
 - https://github.com/iotexproject/iotex-core/
 version: 0.1.0

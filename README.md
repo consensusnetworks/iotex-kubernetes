@@ -24,11 +24,13 @@ Docker image was taken from [IoTeX on Docker hub](https://hub.docker.com/r/iotex
 
 ## Creating GKE Kubernetes Cluster
 
+Replace the values for MASTER_ZONE and PROJECT_NAME with your project's values.
+
 ```bash
 CLUSTER_INDEX=0
 CLUSTER_NAME=iotex-node-${CLUSTER_INDEX} && echo "Cluster name is ${CLUSTER_NAME}"
-MASTER_ZONE=us-central1-a ## Pick your desired zone
-PROJECT_NAME=strong-compiler-327520 ## Grab your gcp project name
+MASTER_ZONE=us-central1-a
+PROJECT_NAME=strong-compiler-327520
 
 gcloud container clusters create $CLUSTER_NAME \
     --num-nodes 1 \
@@ -40,11 +42,11 @@ gcloud container clusters create $CLUSTER_NAME \
     --zone=$MASTER_ZONE \
     --project=$PROJECT_NAME
 
-gcloud container clusters get-credentials $CLUSTER_NAME --zone=$MASTER_ZONE
+gcloud container clusters get-credentials $CLUSTER_NAME \
+    --zone=$MASTER_ZONE \
+    --project=$PROJECT_NAME
 
 kubectl create -f storageclass-ssd.yaml 
-helm init
-bash patch-tiller.sh
 ```
 
 ## Resizing cluster (helpful for development on/off toggle)
