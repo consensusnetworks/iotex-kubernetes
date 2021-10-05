@@ -62,10 +62,10 @@ gcloud container clusters resize $CLUSTER_NAME \
 
 ## Installing the Chart
 
-To install the chart with the release name `iotex`:
+To install the (local) chart with the release name `iotex`:
 
 ```bash
-$ helm install iotex charts/iotex
+$ helm install iotex ./iotex
 ```
 
 The command deploys IoTeX on the Kubernetes cluster in the default configuration.
