@@ -17,8 +17,8 @@ Docker image was taken from [IoTeX on Docker hub](https://hub.docker.com/r/iotex
 
 ## Prerequisites
 
-- Kubernetes 1.8+
-- Helm 2.16
+- Kubernetes 1.20+
+- Helm 3.7
 - PV provisioner support in the underlying infrastructure
 - [gcloud](https://cloud.google.com/sdk/install)
 
