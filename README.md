@@ -60,6 +60,9 @@ gcloud container clusters resize $CLUSTER_NAME \
     --project=$PROJECT_NAME
 ```
 
+## Setting up IoTeX Keys
+Todo
+
 ## Installing the Chart
 
 To install the (local) chart with the release name `iotex`:
