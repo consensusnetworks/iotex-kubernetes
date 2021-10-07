@@ -8,8 +8,8 @@ keywords:
 - iotex
 - cryptocurrency
 maintainers:
-- name: shanejearley
-  email: shanejearley@gmail.com
+- name: robo-support
+  email: support@consensusnetworks.com
 name: iotex
 sources:
 - https://github.com/iotexproject/iotex-core/
