@@ -60,8 +60,9 @@ gcloud container clusters resize $CLUSTER_NAME \
     --project=$PROJECT_NAME
 ```
 
-## Setting up IoTeX Keys
-Todo
+## Setting up custom values
+`externalLBp2pIP`: Update with the EXTERNAL-IP returned from `kubectl get nodes --output wide`
+`producerPrivKey`: Todo
 
 ## Installing the Chart
 
@@ -93,7 +94,7 @@ The following table lists the configurable parameters of the iotex chart and the
 Parameter                       | Description                                       | Default
 ------------------------------- | ------------------------------------------------- | ----------------------------------------------------------
 `image.repository`              | Image source repository name                      | `iotex/iotex-core`
-`image.tag`                     | `iotex` release tag.                              | `v1.0.0`
+`image.tag`                     | `iotex` release tag.                              | `v1.4.0`
 `image.pullPolicy`              | Image pull policy                                 | `IfNotPresent`
 `service.rpcPort`               | RPC port                                          | `14014`
 `service.p2pPort`               | P2P port                                          | `4689`

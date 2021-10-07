@@ -17,15 +17,15 @@ externalLB: false
 externalLBIP: ""
 externalLBSourceRanges: {}
 
+# Grabbed from GKE node pool
 externalLBp2p: false
-externalLBp2pIP: ""
+externalLBp2pIP: "34.70.42.188"
 internalLB: true
 internalLBIP: ""
 
 persistence:
   enabled: true
   storageClass: "ssd"
-#  storageClass: "-"
   accessMode: ReadWriteOnce
   size: "100Gi"
 
@@ -65,7 +65,7 @@ iotex:
   maxHealthyAge: 3600
   config:
     # specify ETH archive node RPC here
-    eth_api_url: ""
+    eth_api_url: "https://mainnet.infura.io/v3/b355cae6fafc4302b106b937ee6c15af"
 
 
 # enable this to run iotex-get-genesis as init container
