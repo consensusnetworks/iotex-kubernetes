@@ -5,7 +5,7 @@ kind: Service
 metadata:
   name: {{ .Release.Name }}-lb-p2p
   labels:
-    chain: {{ .Values.iotex.chain_id }}
+    chain: "{{ .Values.iotex.chain_id }}"
 {{ include "iotex.labels" . | indent 4 }}
 spec:
   type: LoadBalancer

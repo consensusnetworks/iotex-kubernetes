@@ -20,49 +20,16 @@ Docker image was taken from [IoTeX on Docker hub](https://hub.docker.com/r/iotex
 - Kubernetes 1.20+
 - Helm 3.7
 - PV provisioner support in the underlying infrastructure
-- [gcloud](https://cloud.google.com/sdk/install)
 
-## Creating GKE Kubernetes Cluster
+## Setting up a Kubernetes cluster
 
-Replace the values for MASTER_ZONE and PROJECT_NAME with your project's values.
+1. [GCP](./gcp-gke/README.md)
+2. [AWS](./aws-eks/README.md)
+3. [Tanzu](./tanzu-vsphere/README.md)
 
-```bash
-CLUSTER_INDEX=0
-CLUSTER_NAME=iotex-node-${CLUSTER_INDEX} && echo "Cluster name is ${CLUSTER_NAME}"
-MASTER_ZONE=us-central1-a
-PROJECT_NAME=strong-compiler-327520
+## Configure your custom [values](./iotex/values.yaml)
 
-gcloud container clusters create $CLUSTER_NAME \
-    --num-nodes 1 \
-    --enable-autoscaling --max-nodes=1 --min-nodes=1 \
-    --machine-type=n1-standard-1 \
-    --cluster-version latest \
-    --enable-autorepair \
-    --enable-ip-alias \
-    --zone=$MASTER_ZONE \
-    --project=$PROJECT_NAME
-
-gcloud container clusters get-credentials $CLUSTER_NAME \
-    --zone=$MASTER_ZONE \
-    --project=$PROJECT_NAME
-
-kubectl create -f storageclass-ssd.yaml 
-```
-
-## Resizing cluster (helpful for development on/off toggle)
-
-```bash
-NODE_COUNT=0 ## Change this to 1 to turn on the node
-
-gcloud container clusters resize $CLUSTER_NAME \ 
-    --num-nodes=$NODE_COUNT \
-    --zone=$MASTER_ZONE \
-    --project=$PROJECT_NAME
-```
-
-## Setting up custom values
 `externalLBp2pIP`: Update with the EXTERNAL-IP returned from `kubectl get nodes --output wide`
-`producerPrivKey`: Todo
 
 ## Installing the Chart
 

@@ -17,15 +17,16 @@ externalLB: false
 externalLBIP: ""
 externalLBSourceRanges: {}
 
-# Grabbed from GKE node pool
+# Replace externalLBp2pIP and internalLBIP with values from your cluster
 externalLBp2p: false
 externalLBp2pIP: "34.70.42.188"
 internalLB: true
-internalLBIP: ""
+internalLBIP: "10.128.0.5"
 
 persistence:
   enabled: true
   storageClass: "ssd"
+  # storageClass: "-"
   accessMode: ReadWriteOnce
   size: "100Gi"
 
@@ -57,15 +58,16 @@ affinity:
           topologyKey: failure-domain.beta.kubernetes.io/zone
 
 iotex:
+  chain_id: "2"
   base_path: "/var/data"
   configurationFileName: "config.yaml"
   # mainnet/testnet
-  network: "mainnet"
+  network: "testnet"
   # how many seconds should liveness check wait for a new block.
   maxHealthyAge: 3600
   config:
     # specify ETH archive node RPC here
-    eth_api_url: "https://mainnet.infura.io/v3/b355cae6fafc4302b106b937ee6c15af"
+    eth_api_url: "https://testnet.infura.io/v3/b355cae6fafc4302b106b937ee6c15af"
 
 
 # enable this to run iotex-get-genesis as init container
