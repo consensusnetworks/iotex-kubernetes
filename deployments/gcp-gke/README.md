@@ -30,7 +30,7 @@ gcloud container clusters get-credentials $CLUSTER_NAME \
     --zone=$MASTER_ZONE \
     --project=$PROJECT_NAME
 
-kubectl create -f gcp-storageclass-ssd.yaml 
+kubectl create -f ./deployments/gcp-gke/gcp-storageclass-ssd.yaml
 ```
 
 ## Resizing cluster (helpful for development on/off toggle)
@@ -42,3 +42,7 @@ gcloud container clusters resize $CLUSTER_NAME --num-nodes $NODE_COUNT \
     --zone $MASTER_ZONE \
     --project $PROJECT_NAME
 ```
+
+## Configure your custom [values](./values.yaml)
+
+`externalLBp2pIP`: Update with the EXTERNAL-IP returned from `kubectl get nodes --output wide`

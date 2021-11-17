@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: {{ .Release.Name }}-service
   labels:
-    chain: "{{ .Values.iotex.chain_id }}"
+    chain: {{ .Values.iotex.chain_id | quote }}
 {{ include "iotex.labels" . | indent 4 }}
 spec:
   ports:

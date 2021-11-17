@@ -1,7 +1,6 @@
 # https://blog.sparksuite.com/how-to-use-ssd-persistent-disks-on-google-container-engine-92923908955c
-# https://kubernetes.io/docs/concepts/storage/storage-classes/#vsphere
-apiVersion: storage.k8s.io/v1
 kind: StorageClass
+apiVersion: storage.k8s.io/v1
 metadata:
   name: ssd
 provisioner: kubernetes.io/gce-pd

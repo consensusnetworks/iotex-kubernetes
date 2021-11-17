@@ -17,16 +17,17 @@ externalLB: false
 externalLBIP: ""
 externalLBSourceRanges: {}
 
-# Replace externalLBp2pIP and internalLBIP with values from your cluster
 externalLBp2p: false
-externalLBp2pIP: "34.70.42.188"
+# externalLBp2pIP is external load balancer IP from your cluster
+externalLBp2pIP: "your-externalLBp2pIP-value"
 internalLB: true
-internalLBIP: "10.128.0.5"
+# internalLBIP is internal load balancer IP from your cluster
+internalLBIP: "your-internalLBIP-value"
 
 persistence:
   enabled: true
-  storageClass: "ssd"
-  # storageClass: "-"
+  # storageClass should be set based on storage provider ("gp2" for AWS, "ssd" for GCP, "-" for none)
+  storageClass: "gp2"
   accessMode: ReadWriteOnce
   size: "100Gi"
 
@@ -41,7 +42,7 @@ resources:
     cpu: "512m"
     memory: "512Mi"
 
-# 'nobody' IDs
+# securityContext 'nobody' IDs
 securityContext:
   runAsUser: 65534
   runAsGroup: 65534
@@ -58,19 +59,20 @@ affinity:
           topologyKey: failure-domain.beta.kubernetes.io/zone
 
 iotex:
+  # chain_id can be "1" or "2" for "mainnet" or "testnet"
   chain_id: "2"
   base_path: "/var/data"
   configurationFileName: "config.yaml"
-  # mainnet/testnet
+  # network can be "mainnet" or testnet
   network: "testnet"
-  # how many seconds should liveness check wait for a new block.
+  # maxHealthyAge defines how many seconds a liveness check waits for a new block
   maxHealthyAge: 3600
   config:
-    # specify ETH archive node RPC here
+    # eth_api_url is the ETH archive node RPC endpoint
     eth_api_url: "https://testnet.infura.io/v3/b355cae6fafc4302b106b937ee6c15af"
 
 
-# enable this to run iotex-get-genesis as init container
+# iotex_get_genesis runs iotex-get-genesis as init container if enabled
 iotex_get_genesis: false
 
 livenessProbe:

@@ -21,15 +21,11 @@ Docker image was taken from [IoTeX on Docker hub](https://hub.docker.com/r/iotex
 - Helm 3.7
 - PV provisioner support in the underlying infrastructure
 
-## Setting up a Kubernetes cluster
+## Setting up a Kubernetes cluster and customizing values
 
 1. [GCP](./deployments/gcp-gke/README.md)
 2. [AWS](./deployments/aws-eks/README.md)
 3. [Tanzu](./deployments/tanzu-vsphere/README.md)
-
-## Configure your custom [values](./iotex/values.yaml)
-
-`externalLBp2pIP`: Update with the EXTERNAL-IP returned from `kubectl get nodes --output wide`
 
 ## Installing the Chart
 
