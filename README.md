@@ -1,4 +1,4 @@
-> :warning: **This README is a work-in-progress**: Updating the guide for Helm v3!
+> :warning: **This repository is a work-in-progress**: Updating the README for AWS, GCP and VMware deployments.
 
 # IoTeX Node in Kubernetes
 

@@ -43,6 +43,6 @@ gcloud container clusters resize $CLUSTER_NAME --num-nodes $NODE_COUNT \
     --project $PROJECT_NAME
 ```
 
-## Configure your custom [values](./values.yaml)
+## Configure your custom [values](../../iotex/values.yaml)
 
-`externalLBp2pIP`: Update with the EXTERNAL-IP returned from `kubectl get nodes --output wide`
+`externalLBp2pIP` and `internalLBp2pIP`: Update with the EXTERNAL-IP INTERNAL-IP returned from `kubectl get nodes --output wide`
