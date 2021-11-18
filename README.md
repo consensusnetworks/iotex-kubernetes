@@ -23,9 +23,9 @@ Docker image was taken from [IoTeX on Docker hub](https://hub.docker.com/r/iotex
 
 ## Setting up a Kubernetes cluster and customizing values
 
-1. [GCP](./deployments/gcp-gke/README.md)
-2. [AWS](./deployments/aws-eks/README.md)
-3. [Tanzu](./deployments/tanzu-vsphere/README.md)
+1. [GCP guide](./deployments/gcp-gke/README.md)
+2. [AWS guide](./deployments/aws-eks/README.md)
+3. [VMware guide](./deployments/vmware-tanzu/README.md)
 
 ## Installing the Chart
 
