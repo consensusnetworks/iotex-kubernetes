@@ -26,7 +26,7 @@ internalLBIP: "your-internalLBIP-value"
 
 persistence:
   enabled: true
-  # storageClass should be set based on storage provider ("gp2" for AWS, "ssd" for GCP, "-" for none)
+  # storageClass should be set based on storage provider ("gp2" for AWS, "ssd" for GCP, "fast" for VMware, "-" for none)
   storageClass: "gp2"
   accessMode: ReadWriteOnce
   size: "100Gi"
